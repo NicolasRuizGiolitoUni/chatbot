@@ -1,9 +1,9 @@
+require("dotenv").config();
+console.log("Loaded API Key:", process.env.OPENAI_API_KEY);
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const completionRoutes = require("./routes/completionRoutes");
-
-require("dotenv").config();
 
 const app = express();
 app.use(cors());
