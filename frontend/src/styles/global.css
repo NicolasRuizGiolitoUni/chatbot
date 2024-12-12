@@ -12,10 +12,3 @@ body {
   background-color: var(--bg-color);
   overflow: hidden;
 }
-
-button {
-  border: solid 0.5px rgba(255, 255, 255, 0.5);
-  background-color: transparent;
-  border-radius: 0.5rem;
-  padding: 1rem;
-}

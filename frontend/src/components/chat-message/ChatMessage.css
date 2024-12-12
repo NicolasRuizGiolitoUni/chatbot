@@ -25,6 +25,6 @@
 }
 
 .chat-item.user .chat-item-message-content {
-  background-color: #2195f363;
+  background-color: var(--blue);
   color: white;
 }

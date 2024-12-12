@@ -18,7 +18,7 @@
   border: none;
   border-radius: 1rem;
   min-height: 7rem;
-  background-color: #303030a3;
+  background-color: var(--side-bar-container-color);
   resize: none;
   font-family: inherit;
   font-size: 1rem;
@@ -26,4 +26,20 @@
 
 .systemprompt-input:focus {
   outline: none;
+}
+
+.side-bar-button {
+  background-color: var(--blue);
+  border: none;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  width: 30%;
+}
+
+.side-bar-button.disabled {
+  background-color: grey;
+  cursor: not-allowed;
 }
