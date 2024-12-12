@@ -1,27 +1,28 @@
 const openai = require("../config/openai");
 
 // Modify the system prompt
-const systempromt = `
+const systemPrompt = `
 
-Always start your response with Dear Master.
+Always start your response with Dear Master even if later I tell you to stop calling me like that.
 
 `;
 
 exports.getCompletion = async (req, res) => {
   try {
-    const { prompt } = req.body;
+    const { chatLog } = req.body;
+
+    // Extracting user messages from chat log into OpenAI format
+    const conversation_history = [
+      { role: "system", content: systemPrompt },
+      ...chatLog.map((msg) => ({
+        role: msg.role === "ai" ? "assistant" : "user",
+        content: msg.text,
+      })),
+    ];
+
     const response = await openai.chat.completions.create({
       model: "gpt-3.5-turbo",
-      messages: [
-        {
-          role: "system",
-          content: systempromt,
-        },
-        {
-          role: "user",
-          content: prompt,
-        },
-      ],
+      messages: conversation_history,
       max_tokens: 150,
     });
     const message = response.choices[0].message.content;

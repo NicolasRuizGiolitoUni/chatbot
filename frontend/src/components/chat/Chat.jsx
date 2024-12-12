@@ -4,13 +4,7 @@ import "./Chat.css";
 
 const Chat = () => {
   const [message, setMessage] = useState("");
-  const [chatLog, setChatLog] = useState([
-    {
-      id: 1,
-      role: "ai",
-      text: "Hello! I am a ChatBOT. How can I help you today?",
-    },
-  ]);
+  const [chatLog, setChatLog] = useState([]);
 
   // Submitting the message by clicking on send icon
   async function handleSubmit() {
@@ -18,6 +12,13 @@ const Chat = () => {
 
     // Adding user message to chat log
     setChatLog([...chatLog, { id: Date.now(), role: "user", text: message }]);
+
+    const currentChatLog = [
+      ...chatLog,
+      { id: Date.now(), role: "user", text: message },
+    ];
+
+    console.log("Chat log sent to backend:", currentChatLog);
 
     // Clearing the input field
     setMessage("");
@@ -29,7 +30,7 @@ const Chat = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ prompt: message }),
+        body: JSON.stringify({ chatLog: currentChatLog }), // send the whole chat log to the server to get the whole conversation context
       });
       if (!repsonse.ok) {
         throw new Error("Failed to fetch response from server");
