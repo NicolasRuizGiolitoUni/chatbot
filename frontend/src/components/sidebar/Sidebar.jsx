@@ -1,15 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Sidebar.css";
 
-const Sidebar = () => {
+const Sidebar = ({ setSystemPrompt }) => {
+  const handleSystemPromptChange = (e) => {
+    setSystemPrompt(e.target.value); // update the parent systemprompt state
+  };
+
   return (
     <section className="side-bar">
-      <button>+ New chat</button>
-      <ul className="history">
-        <li>YES</li>
-        <li>YE</li>
-        <li>YES</li>
-      </ul>
+      <div className="feature-container">
+        <p>Instructions</p>
+        <textarea
+          className="systemprompt-input"
+          onChange={handleSystemPromptChange}
+        ></textarea>
+      </div>
     </section>
   );
 };

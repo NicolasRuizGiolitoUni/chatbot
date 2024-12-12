@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ChatScreen.css";
-import Sidebar from "../components/sidebar/Sidebar";
+import Sidebar from "../components/Sidebar/Sidebar";
 import Chat from "../components/chat/Chat";
 const ChatScreen = () => {
+  const [systemPrompt, setSystemPrompt] = useState("");
   return (
     <div className="chat-screen">
-      <Sidebar />
-      <Chat />
+      <Sidebar setSystemPrompt={setSystemPrompt} />
+      <Chat systemPrompt={systemPrompt} />
     </div>
   );
 };

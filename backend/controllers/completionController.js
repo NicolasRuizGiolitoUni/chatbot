@@ -1,15 +1,9 @@
 const openai = require("../config/openai");
 
-// Modify the system prompt
-const systemPrompt = `
-
-Always start your response with Dear Master even if later I tell you to stop calling me like that.
-
-`;
-
 exports.getCompletion = async (req, res) => {
   try {
-    const { chatLog } = req.body;
+    console.log("Request Body Received:", req.body);
+    const { systemPrompt, chatLog } = req.body;
 
     // Extracting user messages from chat log into OpenAI format
     const conversation_history = [
