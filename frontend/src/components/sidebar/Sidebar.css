@@ -5,7 +5,10 @@
   display: flex;
   flex-direction: column;
   padding: 2rem 1.5rem;
-  gap: 3rem;
+}
+
+.side-bar p {
+  margin-bottom: 0.5rem;
 }
 
 /* Change the gap between title and content of feature*/
@@ -13,6 +16,7 @@
   display: flex;
   flex-direction: column;
   gap: 0rem;
+  margin-bottom: 3rem;
 }
 
 /* Change the gap between elements of feature*/
@@ -61,4 +65,9 @@
 
 .side-bar-button.disabled {
   background-color: grey;
+}
+
+.material-symbols-outlined.sidebar.close {
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }

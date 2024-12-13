@@ -3,6 +3,8 @@ import ChatMessage from "../chat-message/ChatMessage";
 import "./Chat.css";
 
 const Chat = ({
+  isSidebarOpen,
+  setIsSidebarOpen,
   systemPrompt,
   useOpenRouter,
   selectedOpenRouterModel,
@@ -79,6 +81,16 @@ const Chat = ({
   return (
     <section className="chat-area">
       <header>
+        {!isSidebarOpen && (
+          <span
+            className="material-symbols-outlined sidebar open"
+            onClick={() => {
+              setIsSidebarOpen(true);
+            }}
+          >
+            dock_to_right
+          </span>
+        )}
         <h1>ChatBOT</h1>
       </header>
       <div className="chat-log">

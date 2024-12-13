@@ -1,3 +1,24 @@
+.header {
+  display: flex; /* Enables flexbox for horizontal layout */
+  align-items: center; /* Vertically aligns items */
+  justify-content: center; /* Centers the title horizontally */
+  position: relative; /* Allows precise positioning of the icon */
+  height: 60px; /* Adjust height as needed */
+  padding: 0 16px; /* Adds padding for spacing */
+}
+
+.material-symbols-outlined.sidebar.open {
+  position: absolute; /* Allows it to stay fixed on the left */
+  left: 16px; /* Positions it at the start of the page */
+  font-size: 2rem; /* Adjust size as needed */
+}
+
+h1 {
+  margin: 0;
+  text-align: center;
+  flex: none; /* Prevents it from stretching */
+}
+
 .chat-area {
   width: 100%;
   display: flex;

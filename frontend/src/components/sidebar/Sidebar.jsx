@@ -6,6 +6,8 @@ import Dataset from "./dataset/Dataset";
 import Export from "./export/Export";
 
 const Sidebar = ({
+  isSidebarOpen,
+  setIsSidebarOpen,
   setSystemPrompt,
   useOpenRouter,
   setUseOpenRouter,
@@ -16,19 +18,29 @@ const Sidebar = ({
   chatLog,
 }) => {
   return (
-    <section className="side-bar">
-      <Instructions setSystemPrompt={setSystemPrompt} />
-      <Dataset
-        knowledgeDataSet={knowledgeDataSet}
-        setKnowledgeDataSet={setKnowledgeDataSet}
-      />
-      <Model
-        setUseOpenRouter={setUseOpenRouter}
-        selectedOpenRouterModel={selectedOpenRouterModel}
-        setSelectedOpenRouterModel={setSelectedOpenRouterModel}
-      />
-      <Export chatLog={chatLog} />
-    </section>
+    <>
+      <section className="side-bar">
+        <span
+          className="material-symbols-outlined sidebar close"
+          onClick={() => {
+            setIsSidebarOpen(false);
+          }}
+        >
+          dock_to_right
+        </span>
+        <Instructions setSystemPrompt={setSystemPrompt} />
+        <Dataset
+          knowledgeDataSet={knowledgeDataSet}
+          setKnowledgeDataSet={setKnowledgeDataSet}
+        />
+        <Model
+          setUseOpenRouter={setUseOpenRouter}
+          selectedOpenRouterModel={selectedOpenRouterModel}
+          setSelectedOpenRouterModel={setSelectedOpenRouterModel}
+        />
+        <Export chatLog={chatLog} />
+      </section>
+    </>
   );
 };
 
