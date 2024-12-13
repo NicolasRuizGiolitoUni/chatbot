@@ -1,12 +1,12 @@
-const { openai, useOpenRouter } = require("../config/openai");
+const { getOpenAIInstance } = require("../config/openai");
 
 exports.getCompletion = async (req, res) => {
   try {
-    console.log("Request Body Received:", req.body);
+    const { systemPrompt, chatLog, useOpenRouter } = req.body;
     console.log(`Using ${useOpenRouter ? "OpenRouter" : "OpenAI"} API`);
-    const { systemPrompt, chatLog } = req.body;
 
-    // Extracting user messages from chat log into OpenAI format
+    const openai = getOpenAIInstance(useOpenRouter); // Get the appropriate OpenAI instance
+
     const conversation_history = [
       { role: "system", content: systemPrompt },
       ...chatLog.map((msg) => ({
@@ -20,8 +20,8 @@ exports.getCompletion = async (req, res) => {
       messages: conversation_history,
       max_tokens: 150,
     });
-    const message = response.choices[0].message.content;
-    res.status(200).json({ completion: message });
+
+    res.status(200).json({ completion: response.choices[0].message.content });
   } catch (error) {
     console.error("Error occurred:", error);
     res.status(500).json({ error: error.message });

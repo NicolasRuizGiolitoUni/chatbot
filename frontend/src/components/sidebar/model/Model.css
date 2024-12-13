@@ -1,0 +1,31 @@
+.feature-content.model {
+  gap: 1rem;
+}
+
+.button-container {
+  display: flex;
+  gap: 0;
+  flex-direction: row;
+}
+
+.model-button {
+  border: 1px solid rgba(255, 255, 255, 0.313);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  width: 100%;
+  text-align: center;
+}
+
+.model-button.openai {
+  border-radius: 1rem 0rem 0 1rem;
+}
+
+.model-button.openrouter {
+  border-radius: 0rem 1rem 1rem 0rem;
+}
+
+.model-button.active {
+  background-color: var(--blue);
+}

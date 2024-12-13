@@ -5,9 +5,18 @@
   display: flex;
   flex-direction: column;
   padding: 2rem 1.5rem;
+  gap: 3rem;
 }
 
+/* Change the gap between title and content of feature*/
 .feature-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0rem;
+}
+
+/* Change the gap between elements of feature*/
+.feature-content {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
