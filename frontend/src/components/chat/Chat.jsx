@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ChatMessage from "../chat-message/ChatMessage";
 import "./Chat.css";
 
-const Chat = ({ systemPrompt, useOpenRouter }) => {
+const Chat = ({ systemPrompt, useOpenRouter, selectedOpenRouterModel }) => {
   const [message, setMessage] = useState("");
   const [chatLog, setChatLog] = useState([]);
 
@@ -34,6 +34,7 @@ const Chat = ({ systemPrompt, useOpenRouter }) => {
           chatLog: currentChatLog, // send the whole chat log to the server to get the whole conversation context
           systemPrompt, //send the system prompt to the server
           useOpenRouter, //send the model type to the server
+          selectedOpenRouterModel, //send the model name to the server
         }),
       });
       if (!repsonse.ok) {

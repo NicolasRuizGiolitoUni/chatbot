@@ -2,8 +2,12 @@ const { getOpenAIInstance } = require("../config/openai");
 
 exports.getCompletion = async (req, res) => {
   try {
-    const { systemPrompt, chatLog, useOpenRouter } = req.body;
+    const { systemPrompt, chatLog, useOpenRouter, selectedOpenRouterModel } =
+      req.body;
+
+    const model = useOpenRouter ? selectedOpenRouterModel : "gpt-3.5-turbo";
     console.log(`Using ${useOpenRouter ? "OpenRouter" : "OpenAI"} API`);
+    console.log(`Selected model: ${model}`);
 
     const openai = getOpenAIInstance(useOpenRouter); // Get the appropriate OpenAI instance
 
@@ -16,7 +20,7 @@ exports.getCompletion = async (req, res) => {
     ];
 
     const response = await openai.chat.completions.create({
-      model: "gpt-3.5-turbo",
+      model: model,
       messages: conversation_history,
       max_tokens: 150,
     });

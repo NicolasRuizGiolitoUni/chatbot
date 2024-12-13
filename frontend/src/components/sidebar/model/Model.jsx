@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import "./Model.css";
 import BootstrapDropdown from "./bootstrapDropdown/BootstrapDropdown";
 
-const Model = ({ useOpenRouter, setUseOpenRouter }) => {
+const Model = ({
+  useOpenRouter,
+  setUseOpenRouter,
+  selectedOpenRouterModel,
+  setSelectedOpenRouterModel,
+}) => {
   const [activeButton, setActiveButton] = useState("openai");
 
   const handleButtonClick = (button) => {
@@ -38,7 +43,10 @@ const Model = ({ useOpenRouter, setUseOpenRouter }) => {
         </div>
         {activeButton === "openrouter" && (
           <div className="boostrap-container">
-            <BootstrapDropdown />
+            <BootstrapDropdown
+              selectedOpenRouterModel={selectedOpenRouterModel}
+              setSelectedOpenRouterModel={setSelectedOpenRouterModel}
+            />
           </div>
         )}
       </div>
