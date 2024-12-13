@@ -10,7 +10,7 @@ exports.getCompletion = async (req, res) => {
       knowledgeDataSet,
     } = req.body;
 
-    const model = useOpenRouter ? selectedOpenRouterModel : "gpt-3.5-turbo";
+    const model = useOpenRouter ? selectedOpenRouterModel : "gpt-4o";
     const dataset = knowledgeDataSet ? `\nDataset:\n${knowledgeDataSet}` : ""; // Include dataset if available
 
     console.log(`Using ${useOpenRouter ? "OpenRouter" : "OpenAI"} API`);

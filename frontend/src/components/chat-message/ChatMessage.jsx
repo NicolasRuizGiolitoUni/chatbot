@@ -1,5 +1,6 @@
 import React from "react";
 import "./ChatMessage.css";
+import ReactMarkdown from "react-markdown";
 
 const ChatMessage = ({ chatLog }) => {
   return (
@@ -11,7 +12,13 @@ const ChatMessage = ({ chatLog }) => {
               smart_toy
             </span>
           )}
-          <div className="chat-item-message-content">{message.text}</div>
+          <div className="chat-item-message-content">
+            {message.role == "ai" ? (
+              <ReactMarkdown>{message.text}</ReactMarkdown>
+            ) : (
+              message.text
+            )}
+          </div>
         </div>
       ))}
     </>
