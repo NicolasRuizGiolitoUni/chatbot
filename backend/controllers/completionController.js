@@ -1,8 +1,9 @@
-const openai = require("../config/openai");
+const { openai, useOpenRouter } = require("../config/openai");
 
 exports.getCompletion = async (req, res) => {
   try {
     console.log("Request Body Received:", req.body);
+    console.log(`Using ${useOpenRouter ? "OpenRouter" : "OpenAI"} API`);
     const { systemPrompt, chatLog } = req.body;
 
     // Extracting user messages from chat log into OpenAI format
