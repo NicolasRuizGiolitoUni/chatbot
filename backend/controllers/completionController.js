@@ -37,7 +37,7 @@ exports.getCompletion = async (req, res) => {
     const response = await openai.chat.completions.create({
       model: model,
       messages: conversation_history,
-      max_tokens: 150,
+      max_tokens: 5000,
     });
 
     res.status(200).json({ completion: response.choices[0].message.content });

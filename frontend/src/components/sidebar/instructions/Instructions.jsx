@@ -36,7 +36,7 @@ const Instructions = ({ setSystemPrompt }) => {
             className={`side-bar-button ${isButtonDisabled ? "disabled" : ""}`}
             onClick={handleApply}
           >
-            apply
+            Apply
           </button>
         </div>
       </div>

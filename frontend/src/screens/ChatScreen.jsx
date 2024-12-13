@@ -19,6 +19,7 @@ const ChatScreen = () => {
         setSelectedOpenRouterModel={setSelectedOpenRouterModel}
         knowledgeDataSet={knowledgeDataSet}
         setKnowledgeDataSet={setKnowledgeDataSet}
+        chatLog={chatLog}
       />
       <Chat
         systemPrompt={systemPrompt}

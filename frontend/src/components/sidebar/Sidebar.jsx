@@ -13,6 +13,7 @@ const Sidebar = ({
   setSelectedOpenRouterModel,
   knowledgeDataSet,
   setKnowledgeDataSet,
+  chatLog,
 }) => {
   return (
     <section className="side-bar">
@@ -26,7 +27,7 @@ const Sidebar = ({
         selectedOpenRouterModel={selectedOpenRouterModel}
         setSelectedOpenRouterModel={setSelectedOpenRouterModel}
       />
-      <Export />
+      <Export chatLog={chatLog} />
     </section>
   );
 };

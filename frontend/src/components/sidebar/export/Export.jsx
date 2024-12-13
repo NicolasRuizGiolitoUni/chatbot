@@ -2,6 +2,7 @@ import React from "react";
 
 const Export = ({ chatLog }) => {
   const exportChat = () => {
+    console.log("Chatlog:", chatLog);
     if (!chatLog || chatLog.length === 0) {
       console.error("Chat log is empty or undefined.");
       alert("No chat to export!");
