@@ -19,6 +19,7 @@
 .feature-content {
   display: flex;
   flex-direction: column;
+  justify-content: start;
   gap: 0.5rem;
 }
 
@@ -37,15 +38,25 @@
   outline: none;
 }
 
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start; /* Ensures children align to their content width */
+}
+
 .side-bar-button {
   background-color: var(--blue);
   border: none;
   border-radius: 1rem;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1rem; /* Adds space around the text */
   cursor: pointer;
   font-size: 1rem;
   font-weight: 500;
-  width: 30%;
+  width: auto; /* Makes the width fit the text */
+  display: inline-block; /* Ensures the button fits the content width */
+  text-align: center; /* Centers the text inside the button */
+  box-sizing: border-box; /* Ensures padding and border are included in the width */
 }
 
 .side-bar-button.disabled {

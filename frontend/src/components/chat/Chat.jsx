@@ -2,9 +2,15 @@ import React, { useState } from "react";
 import ChatMessage from "../chat-message/ChatMessage";
 import "./Chat.css";
 
-const Chat = ({ systemPrompt, useOpenRouter, selectedOpenRouterModel }) => {
+const Chat = ({
+  systemPrompt,
+  useOpenRouter,
+  selectedOpenRouterModel,
+  knowledgeDataSet,
+  chatLog,
+  setChatLog,
+}) => {
   const [message, setMessage] = useState("");
-  const [chatLog, setChatLog] = useState([]);
 
   // Submitting the message by clicking on send icon
   async function handleSubmit() {
@@ -35,6 +41,7 @@ const Chat = ({ systemPrompt, useOpenRouter, selectedOpenRouterModel }) => {
           systemPrompt, //send the system prompt to the server
           useOpenRouter, //send the model type to the server
           selectedOpenRouterModel, //send the model name to the server
+          knowledgeDataSet, //send the dataset to the server
         }),
       });
       if (!repsonse.ok) {

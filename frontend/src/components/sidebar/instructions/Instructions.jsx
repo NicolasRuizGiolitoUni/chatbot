@@ -31,12 +31,14 @@ const Instructions = ({ setSystemPrompt }) => {
           value={localSystemPrompt}
           onChange={(e) => setLocalSystemPrompt(e.target.value)}
         ></textarea>
-        <button
-          className={`side-bar-button ${isButtonDisabled ? "disabled" : ""}`}
-          onClick={handleApply}
-        >
-          apply
-        </button>
+        <div className="button-container">
+          <button
+            className={`side-bar-button ${isButtonDisabled ? "disabled" : ""}`}
+            onClick={handleApply}
+          >
+            apply
+          </button>
+        </div>
       </div>
     </div>
   );
