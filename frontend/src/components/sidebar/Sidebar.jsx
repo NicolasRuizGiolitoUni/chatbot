@@ -8,6 +8,7 @@ import Export from "./export/Export";
 const Sidebar = ({
   isSidebarOpen,
   setIsSidebarOpen,
+  systemPrompt,
   setSystemPrompt,
   useOpenRouter,
   setUseOpenRouter,
@@ -42,6 +43,10 @@ const Sidebar = ({
         />
         <Export
           chatLog={chatLog}
+          systemPrompt={systemPrompt}
+          useOpenRouter={useOpenRouter}
+          selectedOpenRouterModel={selectedOpenRouterModel}
+          knowledgeDataSet={knowledgeDataSet} // TODO: do we need this?
           exportOutput={exportOutput}
           setExportOutput={setExportOutput}
         />

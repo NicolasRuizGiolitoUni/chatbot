@@ -9,7 +9,7 @@ const ChatScreen = () => {
   const [selectedOpenRouterModel, setSelectedOpenRouterModel] =
     useState("GPT-4o");
   const [knowledgeDataSet, setKnowledgeDataSet] = useState("");
-  const [exportOutput, setExportOutput] = useState("");
+
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   return (
     <div className="chat-screen">
@@ -25,8 +25,6 @@ const ChatScreen = () => {
           knowledgeDataSet={knowledgeDataSet}
           setKnowledgeDataSet={setKnowledgeDataSet}
           chatLog={chatLog}
-          exportOutput={exportOutput}
-          setExportOutput={setExportOutput}
         />
       )}
       <Chat
