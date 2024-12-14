@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Export.css";
 
-const Export = ({ chatLog }) => {
+const Export = ({ chatLog, exportOutput, setExportOutput }) => {
+  const [exportInstructions, setExportInstructions] = useState("");
+
+  const handleExportOutput = () => {
+    if (exportInstructions.trim() === "") {
+      console.error("Output is empty or undefined.");
+      alert("No output to export!");
+      return;
+    }
+    console.log("Exporting output...");
+  };
+
   const exportChat = () => {
     console.log("Chatlog:", chatLog);
     if (!chatLog || chatLog.length === 0) {
@@ -29,9 +40,16 @@ const Export = ({ chatLog }) => {
     <div className="feature-container export">
       <p>Export</p>
       <div className="feature-content">
-        <textarea className="user-input"></textarea>
+        <textarea
+          className="user-input"
+          value={exportInstructions}
+          onChange={(e) => setExportInstructions(e.target.value)}
+        ></textarea>
         <div className="button-container export">
-          <button className="side-bar-button download-output">
+          <button
+            className="side-bar-button download-output"
+            onClick={handleExportOutput}
+          >
             Download Output
           </button>
           <button

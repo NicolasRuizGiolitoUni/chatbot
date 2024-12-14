@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ChatMessage from "../chat-message/ChatMessage";
+import { fetchChatCompletion } from "../../api/api";
 import "./Chat.css";
 
 const Chat = ({
@@ -14,53 +15,36 @@ const Chat = ({
 }) => {
   const [message, setMessage] = useState("");
 
-  // Submitting the message by clicking on send icon
   async function handleSubmit() {
     if (message.trim() === "") return;
 
     // Adding user message to chat log
-    setChatLog([...chatLog, { id: Date.now(), role: "user", text: message }]);
+    const userMessage = { id: Date.now(), role: "user", text: message };
+    const updatedChatLog = [...chatLog, userMessage];
+    setChatLog(updatedChatLog);
 
-    const currentChatLog = [
-      ...chatLog,
-      { id: Date.now(), role: "user", text: message },
-    ];
-
-    console.log("Chat log sent to backend:", currentChatLog);
-
-    // Clearing the input field
+    // Clear the input field
     setMessage("");
 
-    // Fetching response from the server
+    // Fetching AI response
     try {
-      const repsonse = await fetch("http://localhost:5000/api/completion", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          chatLog: currentChatLog, // send the whole chat log to the server to get the whole conversation context
-          systemPrompt, //send the system prompt to the server
-          useOpenRouter, //send the model type to the server
-          selectedOpenRouterModel, //send the model name to the server
-          knowledgeDataSet, //send the dataset to the server
-        }),
+      const aiResponse = await fetchChatCompletion({
+        chatLog: updatedChatLog,
+        systemPrompt,
+        useOpenRouter,
+        selectedOpenRouterModel,
+        knowledgeDataSet,
       });
-      if (!repsonse.ok) {
-        throw new Error("Failed to fetch response from server");
-      }
-      const data = await repsonse.json();
 
       // Adding AI response to chat log
       setChatLog((prevChatLog) => [
         ...prevChatLog,
-        { id: Date.now(), role: "ai", text: data.completion },
+        { id: Date.now(), role: "ai", text: aiResponse },
       ]);
-    } catch (error) {
-      console.error("Error: ", error);
-
+    } catch {
+      // Adding fallback error message
       setChatLog((prevChatLog) => [
-        ...prevChatLog, // current chat log
+        ...prevChatLog,
         {
           id: Date.now(),
           role: "ai",
@@ -70,7 +54,6 @@ const Chat = ({
     }
   }
 
-  //Submiting the message by pressing enter key
   const handleKeyPress = (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
@@ -84,9 +67,7 @@ const Chat = ({
         {!isSidebarOpen && (
           <span
             className="material-symbols-outlined sidebar open"
-            onClick={() => {
-              setIsSidebarOpen(true);
-            }}
+            onClick={() => setIsSidebarOpen(true)}
           >
             dock_to_right
           </span>
