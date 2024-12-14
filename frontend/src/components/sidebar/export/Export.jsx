@@ -1,4 +1,5 @@
 import React from "react";
+import "./Export.css";
 
 const Export = ({ chatLog }) => {
   const exportChat = () => {
@@ -28,8 +29,15 @@ const Export = ({ chatLog }) => {
     <div className="feature-container export">
       <p>Export</p>
       <div className="feature-content">
-        <div className="button-container">
-          <button className="side-bar-button" onClick={exportChat}>
+        <textarea className="user-input"></textarea>
+        <div className="button-container export">
+          <button className="side-bar-button download-output">
+            Download Output
+          </button>
+          <button
+            className="side-bar-button download-chat"
+            onClick={exportChat}
+          >
             Download Chat
           </button>
         </div>

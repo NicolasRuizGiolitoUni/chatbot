@@ -27,7 +27,7 @@ const Instructions = ({ setSystemPrompt }) => {
       <p>Instructions</p>
       <div className="feature-content instructions">
         <textarea
-          className="systemprompt-input"
+          className="user-input"
           value={localSystemPrompt}
           onChange={(e) => setLocalSystemPrompt(e.target.value)}
         ></textarea>
