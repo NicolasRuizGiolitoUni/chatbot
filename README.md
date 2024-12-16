@@ -94,15 +94,6 @@ If you don’t have Git, download the ZIP file of the repository from GitHub and
    ```
    Replace `your-openai-api-key` with your actual OpenAI API key.
 
-#### Frontend
-
-1. In the **frontend** folder, create a file named `.env`.
-2. Add the following line:
-   ```env
-   REACT_APP_BACKEND_URL=http://localhost:5000
-   ```
-
----
 
 ### Step 4: Run the Project
 
