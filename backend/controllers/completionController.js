@@ -56,6 +56,7 @@ exports.generateConfig = async (req, res) => {
       useOpenRouter,
       selectedOpenRouterModel,
       knowledgeDataSet,
+      output,
     } = req.body;
 
     // Create the configuration object
@@ -64,6 +65,7 @@ exports.generateConfig = async (req, res) => {
       useOpenRouter,
       selectedOpenRouterModel,
       knowledgeDataSet,
+      output,
     };
 
     // Convert the configuration to a JSON string

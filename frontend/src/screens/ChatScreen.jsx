@@ -17,6 +17,7 @@ const ChatScreen = () => {
         <Sidebar
           isSidebarOpen={isSidebarOpen}
           setIsSidebarOpen={setIsSidebarOpen}
+          systemPrompt={systemPrompt}
           setSystemPrompt={setSystemPrompt}
           useOpenRouter={useOpenRouter}
           setUseOpenRouter={setUseOpenRouter}

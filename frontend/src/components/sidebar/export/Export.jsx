@@ -10,6 +10,7 @@ const Export = ({
   knowledgeDataSet,
 }) => {
   const [exportInstructions, setExportInstructions] = useState("");
+  const [output, setOutput] = useState("");
 
   const handleExportOutput = async () => {
     if (exportInstructions.trim() === "") {
@@ -30,7 +31,8 @@ const Export = ({
         selectedOpenRouterModel,
         knowledgeDataSet,
       });
-
+      setOutput(apiResponse);
+      console.log("output: ", apiResponse);
       const blob = new Blob([apiResponse], { type: "text/plain" });
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
@@ -74,6 +76,7 @@ const Export = ({
         useOpenRouter,
         selectedOpenRouterModel,
         knowledgeDataSet,
+        output: output ? output : null,
       };
 
       await handleDownloadConfig(config); // Call the API function to handle config download
@@ -93,6 +96,7 @@ const Export = ({
           value={exportInstructions}
           onChange={(e) => setExportInstructions(e.target.value)}
         ></textarea>
+
         <div className="button-container export">
           <button
             className={`side-bar-button download-output ${
