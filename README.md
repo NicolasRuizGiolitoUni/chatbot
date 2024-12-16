@@ -52,7 +52,7 @@ If you don’t have Git, download the ZIP file of the repository from GitHub and
 
 1. Open a terminal/command prompt and navigate to the **backend** folder:
    ```bash
-   cd chatbot-customization-ui/backend
+   cd chatbot/backend
    ```
 2. Install the necessary Node.js packages by running:
    ```bash
@@ -63,7 +63,7 @@ If you don’t have Git, download the ZIP file of the repository from GitHub and
 
 1. Open a new terminal/command prompt and navigate to the **frontend** folder:
    ```bash
-   cd chatbot-customization-ui/frontend
+   cd chatbot/frontend
    ```
 2. Install the required React.js packages and libraries by running:
    ```bash
@@ -110,7 +110,7 @@ If you don’t have Git, download the ZIP file of the repository from GitHub and
 
 1. Navigate to the **backend** folder in your terminal:
    ```bash
-   cd chatbot-customization-ui/backend
+   cd chatbot/backend
    ```
 2. Start the server by running:
    ```bash
@@ -122,7 +122,7 @@ If you don’t have Git, download the ZIP file of the repository from GitHub and
 
 1. Navigate to the **frontend** folder in a new terminal:
    ```bash
-   cd chatbot-customization-ui/frontend
+   cd chatbot/frontend
    ```
 2. Start the React.js application by running:
    ```bash
