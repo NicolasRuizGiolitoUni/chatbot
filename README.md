@@ -130,31 +130,4 @@ If you don’t have Git, download the ZIP file of the repository from GitHub and
    ```
    The application will open in your default browser at `http://localhost:5173`.
 
----
 
-## Troubleshooting
-
-1. **Missing Node.js or npm**: If you get an error about `node` or `npm` not being recognized, ensure Node.js is installed and added to your system's PATH during installation.
-2. **Port Conflicts**: If `http://localhost:5000` or `http://localhost:3000` is already in use, try stopping other applications using those ports or edit the `.env` files to specify different ports.
-3. **API Key Issues**: Make sure you have a valid OpenAI API key. If you don’t have one, sign up at [OpenAI's website](https://platform.openai.com/).
-
----
-
-## Customization
-
-To customize your chatbot:
-
-1. Edit the `systemPrompt` in the frontend to adjust how the AI interacts with users.
-2. Modify the backend files to add custom logic or integrate additional features.
-
----
-
-## Contributing
-
-If you encounter any issues or have suggestions for improvements, feel free to open an issue or submit a pull request.
-
----
-
-## License
-
-This project is licensed under the MIT License. See the `LICENSE` file for details.
