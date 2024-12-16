@@ -75,7 +75,6 @@ If you don’t have Git, download the ZIP file of the repository from GitHub and
    - **React Bootstrap**: For using Bootstrap components in React
    - **Bootstrap**: CSS framework for styling
    - **React Markdown**: To render Markdown content
-     Development tools include:
    - **Vite**: Build tool for modern web apps
    - **ESLint**: For linting and enforcing code quality
 
