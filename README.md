@@ -117,7 +117,7 @@ If you don’t have Git, download the ZIP file of the repository from GitHub and
    ```
 2. Start the React.js application by running:
    ```bash
-   npm start
+   npm run dev 
    ```
    The application will open in your default browser at `http://localhost:5173`.
 
