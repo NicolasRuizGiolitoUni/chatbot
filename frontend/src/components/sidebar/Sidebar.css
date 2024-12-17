@@ -1,10 +1,13 @@
 .side-bar {
   background-color: var(--side-bar-bg-color);
-  max-width: 20rem;
+  max-width: 25rem;
   width: 100%;
   display: flex;
   flex-direction: column;
   padding: 2rem 1.5rem;
+  overflow: auto;
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: #888 #212121; /* Scrollbar thumb and track colors */
 }
 
 .side-bar p {
