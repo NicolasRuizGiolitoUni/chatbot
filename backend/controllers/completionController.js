@@ -1,4 +1,5 @@
 const { getOpenAIInstance } = require("../config/openai");
+const { encodingForModel, get_encoding } = require("tiktoken");
 
 // Get completion from OpenAI API
 exports.getCompletion = async (req, res) => {
@@ -13,9 +14,6 @@ exports.getCompletion = async (req, res) => {
 
     const model = useOpenRouter ? selectedOpenRouterModel : "gpt-4o";
     const dataset = knowledgeDataSet ? `\nDataset:\n${knowledgeDataSet}` : ""; // Include dataset if available
-
-    console.log(`Using ${useOpenRouter ? "OpenRouter" : "OpenAI"} API`);
-    console.log(`Selected model: ${model}`);
 
     const openai = getOpenAIInstance(useOpenRouter); // Get the appropriate OpenAI instance
 
@@ -34,6 +32,25 @@ exports.getCompletion = async (req, res) => {
         content: msg.text,
       })),
     ];
+
+    const encoding = get_encoding("cl100k_base"); // Use the correct encoding for the model
+
+    console.log("Conversation History:");
+    console.log(conversation_history);
+
+    // Concatenate all `content` fields into a single string
+    const fullConversation = conversation_history
+      .map((msg) => msg.content)
+      .join("\n");
+
+    // Encode the concatenated conversation
+    const encodedConversation = encoding.encode(fullConversation);
+    const tokens = encodedConversation.length; // Get the total token count
+
+    console.log(`Total Tokens: ${tokens}\n`);
+
+    // Free the encoding resource
+    encoding.free();
 
     const response = await openai.chat.completions.create({
       model: model,
